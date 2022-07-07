@@ -1,0 +1,5 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">/Users/anibal/Library/Caches/JetBrains/Rider2022.1/resharper-host/temp/Rider/vAny/CoverageData/_mssql.330148422/Snapshot/snapshot.utdcvr</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=028137cc_002Df937_002D49d4_002Da606_002Db30074fce7b0/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="ThrowExceptionWhenDataSourceIsNotLocal" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;Project Location="/Users/anibal/Code/paranoid-software/public/ephemerals.net/mssql/tests" Presentation="&amp;lt;tests&amp;gt;" /&gt;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
