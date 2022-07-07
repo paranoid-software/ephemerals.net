@@ -59,7 +59,7 @@ namespace tests
         public void ThrowExceptionWhenDbNameFormatIsInvalid()
         {
             var exception = Assert.Throws<Exception>(() =>
-                new EphemeralMsSqlDbContext("Data Source=localhost,31433;User Id=sa;Password=my-New-pwd;Persist Security Info=False;Max Pool Size=1024;")
+                new EphemeralMsSqlDbContext("Data Source=localhost;Persist Security Info=False;Max Pool Size=1024;")
                     .SetDatabaseName("my_invalid-db-name")
                     .Build());
             exception.Message.Should().Be("Database name is invalid.");

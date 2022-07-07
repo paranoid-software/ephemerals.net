@@ -7,11 +7,12 @@
         <Title>Ephemeral MsSql Database Context</Title>
         <Authors>Paranoid Software</Authors>
         <Description>Easy way to create and dispose MsSql databases when running isolated integration tests.</Description>
-        <PackageProjectUrl>https://github.com/paranoid-software/ephemerals.net/mssql/lib</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/paranoid-software/ephemerals.net/tree/main/mssql/lib</PackageProjectUrl>
         <RepositoryUrl>https://github.com/paranoid-software/ephemerals.net</RepositoryUrl>
         <PackageTags>database, ephemeral, context, mssql</PackageTags>
-        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-        <PackageVersion>1.0.0</PackageVersion>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageVersion>1.0.1</PackageVersion>
+        <PackageLicenseUrl>https://github.com/paranoid-software/ephemerals.net/blob/main/LICENSE.md</PackageLicenseUrl>
     </PropertyGroup>
 
     <ItemGroup>
