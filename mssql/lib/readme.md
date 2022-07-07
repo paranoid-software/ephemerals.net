@@ -11,7 +11,7 @@ The package is available at Nuget Gallery at https://www.nuget.org/packages/para
 To use the library first we install it by using the nuget package manager:
 
 ```shell
-Install-Package paranoid.software.ephemerals.MsSql -Version 1.0.1
+Install-Package paranoid.software.ephemerals.MsSql -Version 1.0.2
 ```
 
 Then we can include the package on our test classes and start using it. Lets say we need to test some queries to our database:
