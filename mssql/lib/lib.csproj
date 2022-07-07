@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <AssemblyName>paranoid.software.ephemerals.MsSql</AssemblyName>
+        <RootNamespace>paranoid.software.ephemerals.MsSql</RootNamespace>
+        <Title>Ephemeral MsSql Database Context</Title>
+        <Authors>Paranoid Software</Authors>
+        <Description>Easy way to create and dispose MsSql databases when running isolated integration tests.</Description>
+        <PackageProjectUrl>https://github.com/paranoid-software/ephemerals.net/mssql/lib</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/paranoid-software/ephemerals.net</RepositoryUrl>
+        <PackageTags>database, ephemeral, context, mssql</PackageTags>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+        <PackageVersion>1.0.0</PackageVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+    </ItemGroup>
+
+</Project>
