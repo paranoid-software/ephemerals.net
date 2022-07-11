@@ -6,7 +6,7 @@ using Xunit;
 namespace tests
 {
 
-    public class CreatingEphemeralDbContextShould
+    public class InitializingContextShould
     {
         [Fact]
         public void ThrowExceptionWhenDataSourceIsNotLocal()

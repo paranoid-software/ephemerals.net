@@ -10,5 +10,7 @@ namespace paranoid.software.ephemerals.MsSql
         IEphemeralMsSqlDbContext AddScript(string sentence);
         IEphemeralMsSqlDbContext Build();
         IEnumerable<string> GetAllDatabaseNames();
+        IEnumerable<string> GetAllTableNames();
+        int GetRowCount(string tableName);
     }
 }
