@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace paranoid.software.ephemerals.MsSql
@@ -6,7 +7,7 @@ namespace paranoid.software.ephemerals.MsSql
     {
         void CreateDatabase(string name);
         void ExecuteNonQuery(string sentence, string at);
-        IEnumerable<string> GetAllDatabaseNames();
+        IEnumerable<Dictionary<string, object>> ExecuteQuery(string sentence, string at);
         void DropDatabase(string name);
     }
 }

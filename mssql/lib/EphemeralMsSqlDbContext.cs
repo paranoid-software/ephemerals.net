@@ -33,13 +33,7 @@ namespace paranoid.software.ephemerals.MsSql
             _filesManager = filesManager;
             _scripts = new List<string>();
         }
-
-        public IEphemeralMsSqlDbContext SetDatabaseName(string name)
-        {
-            DbName = name;
-            return this;
-        }
-
+        
         public IEphemeralMsSqlDbContext AddScriptFromFile(string filePath)
         {
             _scripts.Add(_filesManager.ReadAllText(filePath));
@@ -54,10 +48,7 @@ namespace paranoid.software.ephemerals.MsSql
 
         public IEphemeralMsSqlDbContext Build()
         {
-            if (string.IsNullOrEmpty(DbName))
-            {
-                DbName = $"eph_{Guid.NewGuid().ToString().Replace("-", "")}";
-            }
+            DbName = $"edb_{Guid.NewGuid().ToString().Replace("-", "")}";
 
             _dbManager.CreateDatabase(DbName);
 
@@ -71,7 +62,21 @@ namespace paranoid.software.ephemerals.MsSql
 
         public IEnumerable<string> GetAllDatabaseNames()
         {
-            return _dbManager.GetAllDatabaseNames();
+            var queryResult =  _dbManager.ExecuteQuery("SELECT name FROM sys.databases;", "master");
+            return queryResult.Select(x => x["name"].ToString()).ToArray();
+        }
+
+        public IEnumerable<string> GetAllTableNames()
+        {
+            var queryResult =  _dbManager.ExecuteQuery("SELECT name FROM sys.tables;", DbName);
+            return queryResult.Select(x => x["name"].ToString()).ToArray();
+        }
+
+        public int GetRowCount(string tableName)
+        {
+            var queryResult =  _dbManager.ExecuteQuery($"SELECT count(*) as row_count FROM {tableName};", DbName);
+            var queryResultAsArray = queryResult.Select(x => Convert.ToInt32(x["row_count"])).ToArray();
+            return queryResultAsArray.Length == 0 ? 0 : queryResultAsArray[0];
         }
 
         public void Dispose()

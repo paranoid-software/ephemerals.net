@@ -1,4 +1,3 @@
-using System;
 using FluentAssertions;
 using Moq;
 using paranoid.software.ephemerals.MsSql;
@@ -6,10 +5,10 @@ using Xunit;
 
 namespace tests
 {
-    public class BuildingEphemeralDbContextShould
+    public class BuildingContextShould
     {
         [Fact]
-        public void SetRandomDbName()
+        public void SetEphemeralDbNamePrefix()
         {
             var dbManagerMock = new Mock<IDbManager>(MockBehavior.Strict);
             dbManagerMock.Setup(m => m.CreateDatabase(It.IsAny<string>()));
@@ -18,26 +17,11 @@ namespace tests
             filesManagerMock.Setup(m => m.ReadAllText(It.IsAny<string>())).Returns("");
             using var sut = new EphemeralMsSqlDbContext("Data Source=localhost;Persist Security Info=False;Max Pool Size=1024;", dbManagerMock.Object, filesManagerMock.Object)
                 .Build();
-            sut.DbName.Should().NotBeNull();
+            sut.DbName.Should().StartWith("edb");
         }
         
         [Fact]
-        public void SetDeclaredDbName()
-        {
-            var dbManagerMock = new Mock<IDbManager>(MockBehavior.Strict);
-            dbManagerMock.Setup(m => m.CreateDatabase(It.IsAny<string>()));
-            dbManagerMock.Setup(m => m.DropDatabase(It.IsAny<string>()));
-            var filesManagerMock = new Mock<IFilesManager>(MockBehavior.Strict);
-            filesManagerMock.Setup(m => m.ReadAllText(It.IsAny<string>())).Returns("");
-            using var sut = new EphemeralMsSqlDbContext("Data Source=localhost;Persist Security Info=False;Max Pool Size=1024;", dbManagerMock.Object, filesManagerMock.Object)
-                .SetDatabaseName("test")
-                .Build();
-            sut.DbName.Should().NotBeNull();
-            sut.DbName.Should().Be("test");
-        }
-        
-        [Fact]
-        public void ExecuteOneCommandPerEveryAddedScript()
+        public void ExecuteOneCommandPerAddedScript()
         {
             var dbManagerMock = new Mock<IDbManager>(MockBehavior.Strict);
             dbManagerMock.Setup(m => m.CreateDatabase(It.IsAny<string>()));
@@ -56,17 +40,27 @@ namespace tests
         }
 
         [Fact]
-        public void ThrowExceptionWhenDbNameFormatIsInvalid()
+        public void CreateTestTable()
         {
-            var exception = Assert.Throws<Exception>(() =>
-                new EphemeralMsSqlDbContext("Data Source=localhost;Persist Security Info=False;Max Pool Size=1024;")
-                    .SetDatabaseName("my_invalid-db-name")
-                    .Build());
-            exception.Message.Should().Be("Database name is invalid.");
+            using var sut = new EphemeralMsSqlDbContext("Data Source=localhost,31433;User Id=sa;Password=my-New-pwd;Persist Security Info=False;Max Pool Size=1024;")
+                .AddScript("CREATE TABLE test (id INT);")
+                .Build();
+            sut.GetAllTableNames().Should().Contain("test");
         }
-
+        
         [Fact]
-        public void CreateNewDatabase()
+        public void Create2TestTableRows()
+        {
+            using var sut = new EphemeralMsSqlDbContext("Data Source=localhost,31433;User Id=sa;Password=my-New-pwd;Persist Security Info=False;Max Pool Size=1024;")
+                .AddScript("CREATE TABLE test (id INT);")
+                .AddScript("INSERT INTO test VALUES(1);")
+                .AddScript("INSERT INTO test VALUES(1);")
+                .Build();
+            sut.GetRowCount("test").Should().Be(2);
+        }
+        
+        [Fact]
+        public void CreateEphemeralDatabase()
         {
             using var sut = new EphemeralMsSqlDbContext("Data Source=localhost,31433;User Id=sa;Password=my-New-pwd;Persist Security Info=False;Max Pool Size=1024;")
                 .Build();
