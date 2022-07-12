@@ -13,6 +13,7 @@ namespace paranoid.software.ephemerals.MsSql
         private readonly List<string> _scripts;
 
         public string DbName { get; private set; }
+        public List<Exception> ScriptsErrors { get; private set; }
 
         public EphemeralMsSqlDbContext(string serverConnectionString) : this(serverConnectionString,
             new DbManager(serverConnectionString), new FilesManager())
@@ -51,10 +52,18 @@ namespace paranoid.software.ephemerals.MsSql
             DbName = $"edb_{Guid.NewGuid().ToString().Replace("-", "")}";
 
             _dbManager.CreateDatabase(DbName);
+            ScriptsErrors = new List<Exception>();
 
             foreach (var sentence in _scripts)
             {
-                _dbManager.ExecuteNonQuery(sentence, DbName);
+                try
+                {
+                    _dbManager.ExecuteNonQuery(sentence, DbName);
+                }
+                catch (Exception e)
+                {
+                    ScriptsErrors.Add(e);
+                }
             }
 
             return this;
