@@ -31,9 +31,9 @@ namespace tests
             filesManagerMock.Setup(m => m.ReadAllText(It.IsAny<string>())).Returns("");
             using var sut = new EphemeralMsSqlDbContext("Data Source=localhost;Persist Security Info=False;Max Pool Size=1024;", dbManagerMock.Object, filesManagerMock.Object)
                 .AddScriptFromFile("script.sql")
-                .AddScript("")
-                .AddScript("")
-                .AddScript("")
+                .AddScript("CREATE TABLE test (id INT);")
+                .AddScript("INSERT INTO test values(1);")
+                .AddScript("INSERT INTO test values(2);")
                 .Build();
             var dbName = sut.DbName;
             dbManagerMock.Verify(m => m.ExecuteNonQuery(It.IsAny<string>(), dbName), Times.Exactly(4));
@@ -54,7 +54,7 @@ namespace tests
             using var sut = new EphemeralMsSqlDbContext("Data Source=localhost,31433;User Id=sa;Password=my-New-pwd;Persist Security Info=False;Max Pool Size=1024;")
                 .AddScript("CREATE TABLE test (id INT);")
                 .AddScript("INSERT INTO test VALUES(1);")
-                .AddScript("INSERT INTO test VALUES(1);")
+                .AddScript("INSERT INTO test VALUES(2);")
                 .Build();
             sut.GetRowCount("test").Should().Be(2);
         }
