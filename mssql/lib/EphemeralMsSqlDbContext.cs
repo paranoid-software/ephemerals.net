@@ -2,10 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using paranoid.software.ephemerals.MsSql.paranoid.software.ephemerals.MsSql;
 
 namespace paranoid.software.ephemerals.MsSql
 {
-    public class EphemeralMsSqlDbContext : IEphemeralMsSqlDbContext
+    public class EphemeralMsSqlDbContext : IEphemeralMsSqlDbContextBuilder, IEphemeralMsSqlDbContext
     {
 
         private readonly IDbManager _dbManager;
@@ -35,13 +36,13 @@ namespace paranoid.software.ephemerals.MsSql
             _scripts = new List<string>();
         }
         
-        public IEphemeralMsSqlDbContext AddScriptFromFile(string filePath)
+        public IEphemeralMsSqlDbContextBuilder AddScriptFromFile(string filePath)
         {
             _scripts.Add(_filesManager.ReadAllText(filePath));
             return this;
         }
 
-        public IEphemeralMsSqlDbContext AddScript(string sentence)
+        public IEphemeralMsSqlDbContextBuilder AddScript(string sentence)
         {
             _scripts.Add(sentence);
             return this;
