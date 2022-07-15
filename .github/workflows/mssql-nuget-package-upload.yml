@@ -3,7 +3,7 @@ name: MsSql Nuget Package Upload
 on:
   push:
     tags:
-      - 'test*'
+      - 'mssql*'
 
 jobs:
   deploy:
