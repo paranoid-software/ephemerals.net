@@ -15,7 +15,7 @@ namespace tests
             dbManagerMock.Setup(m => m.DropDatabase(It.IsAny<string>()));
             var filesManagerMock = new Mock<IFilesManager>(MockBehavior.Strict);
             filesManagerMock.Setup(m => m.ReadAllText(It.IsAny<string>())).Returns("");
-            using var sut = new EphemeralMsSqlDbContext("Data Source=localhost;Persist Security Info=False;Max Pool Size=1024;", dbManagerMock.Object, filesManagerMock.Object)
+            using var sut = new EphemeralMsSqlDbContextBuilder("Data Source=localhost;Persist Security Info=False;Max Pool Size=1024;", dbManagerMock.Object, filesManagerMock.Object)
                 .Build();
             sut.DbName.Should().StartWith("edb");
         }
@@ -29,7 +29,7 @@ namespace tests
             dbManagerMock.Setup(m => m.DropDatabase(It.IsAny<string>()));
             var filesManagerMock = new Mock<IFilesManager>(MockBehavior.Strict);
             filesManagerMock.Setup(m => m.ReadAllText(It.IsAny<string>())).Returns("");
-            using var sut = new EphemeralMsSqlDbContext("Data Source=localhost;Persist Security Info=False;Max Pool Size=1024;", dbManagerMock.Object, filesManagerMock.Object)
+            using var sut = new EphemeralMsSqlDbContextBuilder("Data Source=localhost;Persist Security Info=False;Max Pool Size=1024;", dbManagerMock.Object, filesManagerMock.Object)
                 .AddScriptFromFile("script.sql")
                 .AddScript("CREATE TABLE test (id INT);")
                 .AddScript("INSERT INTO test values(1);")
@@ -42,7 +42,7 @@ namespace tests
         [Fact]
         public void CreateTestTable()
         {
-            using var sut = new EphemeralMsSqlDbContext("Data Source=localhost,31433;User Id=sa;Password=my-New-pwd;Persist Security Info=False;Max Pool Size=1024;")
+            using var sut = new EphemeralMsSqlDbContextBuilder("Data Source=localhost,31433;User Id=sa;Password=my-New-pwd;Persist Security Info=False;Max Pool Size=1024;")
                 .AddScript("CREATE TABLE test (id INT);")
                 .Build();
             sut.GetAllTableNames().Should().Contain("test");
@@ -51,7 +51,7 @@ namespace tests
         [Fact]
         public void Create2TestTableRows()
         {
-            using var sut = new EphemeralMsSqlDbContext("Data Source=localhost,31433;User Id=sa;Password=my-New-pwd;Persist Security Info=False;Max Pool Size=1024;")
+            using var sut = new EphemeralMsSqlDbContextBuilder("Data Source=localhost,31433;User Id=sa;Password=my-New-pwd;Persist Security Info=False;Max Pool Size=1024;")
                 .AddScript("CREATE TABLE test (id INT);")
                 .AddScript("INSERT INTO test VALUES(1);")
                 .AddScript("INSERT INTO test VALUES(2);")
@@ -62,7 +62,7 @@ namespace tests
         [Fact]
         public void CreateEphemeralDatabase()
         {
-            using var sut = new EphemeralMsSqlDbContext("Data Source=localhost,31433;User Id=sa;Password=my-New-pwd;Persist Security Info=False;Max Pool Size=1024;")
+            using var sut = new EphemeralMsSqlDbContextBuilder("Data Source=localhost,31433;User Id=sa;Password=my-New-pwd;Persist Security Info=False;Max Pool Size=1024;")
                 .Build();
             sut.GetAllDatabaseNames().Should().Contain(sut.DbName);
         }

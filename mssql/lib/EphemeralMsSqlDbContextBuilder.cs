@@ -6,7 +6,7 @@ using paranoid.software.ephemerals.MsSql.paranoid.software.ephemerals.MsSql;
 
 namespace paranoid.software.ephemerals.MsSql
 {
-    public class EphemeralMsSqlDbContext : IEphemeralMsSqlDbContextBuilder, IEphemeralMsSqlDbContext
+    public class EphemeralMsSqlDbContextBuilder : IEphemeralMsSqlDbContextBuilder, IEphemeralMsSqlDbContext
     {
 
         private readonly IDbManager _dbManager;
@@ -16,12 +16,12 @@ namespace paranoid.software.ephemerals.MsSql
         public string DbName { get; private set; }
         public List<Exception> ScriptsErrors { get; private set; }
 
-        public EphemeralMsSqlDbContext(string serverConnectionString) : this(serverConnectionString,
+        public EphemeralMsSqlDbContextBuilder(string serverConnectionString) : this(serverConnectionString,
             new DbManager(serverConnectionString), new FilesManager())
         {
         }
 
-        public EphemeralMsSqlDbContext(string serverConnectionString, IDbManager dbManager, IFilesManager filesManager)
+        public EphemeralMsSqlDbContextBuilder(string serverConnectionString, IDbManager dbManager, IFilesManager filesManager)
         {
             var dataSource = new SqlConnectionStringBuilder(serverConnectionString);
             var supportedDataSources = new[] { "localhost", "127.0.0.1" };
