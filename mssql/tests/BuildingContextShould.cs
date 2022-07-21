@@ -28,12 +28,12 @@ namespace tests
             dbManagerMock.Setup(m => m.ExecuteNonQuery(It.IsAny<string>(), It.IsAny<string>()));
             dbManagerMock.Setup(m => m.DropDatabase(It.IsAny<string>()));
             var filesManagerMock = new Mock<IFilesManager>(MockBehavior.Strict);
-            filesManagerMock.Setup(m => m.ReadAllText(It.IsAny<string>())).Returns("");
+            filesManagerMock.Setup(m => m.ReadAllText(It.IsAny<string>())).Returns("CREATE TABLE test (id INT);");
             using var sut = new EphemeralMsSqlDbContextBuilder("Data Source=localhost;Persist Security Info=False;Max Pool Size=1024;", dbManagerMock.Object, filesManagerMock.Object)
                 .AddScriptFromFile("script.sql")
-                .AddScript("CREATE TABLE test (id INT);")
                 .AddScript("INSERT INTO test values(1);")
                 .AddScript("INSERT INTO test values(2);")
+                .AddScript("INSERT INTO test values(3);")
                 .Build();
             var dbName = sut.DbName;
             dbManagerMock.Verify(m => m.ExecuteNonQuery(It.IsAny<string>(), dbName), Times.Exactly(4));

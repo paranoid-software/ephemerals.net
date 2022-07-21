@@ -6,7 +6,7 @@ using Xunit;
 namespace tests
 {
 
-    public class InitializingContextShould
+    public class InitializingContextBuilderShould
     {
         [Fact]
         public void ThrowExceptionWhenDataSourceIsNotLocal()
