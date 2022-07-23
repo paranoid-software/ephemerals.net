@@ -1,4 +1,3 @@
-
 namespace paranoid.software.ephemerals.PostgreSql
 {
     public interface IEphemeralMsSqlDbContextBuilder

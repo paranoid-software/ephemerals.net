@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Npgsql;
-using paranoid.software.ephemerals.PostgreSql;
 
 namespace paranoid.software.ephemerals.PostgreSql
 {

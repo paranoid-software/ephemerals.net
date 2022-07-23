@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using paranoid.software.ephemerals.MsSql.paranoid.software.ephemerals.MsSql;
 
 namespace paranoid.software.ephemerals.MsSql
 {
