@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <AssemblyName>paranoid.software.ephemerals.PostgreSql</AssemblyName>
+        <RootNamespace>paranoid.software.ephemerals.PostgreSql</RootNamespace>
+        <Title>Ephemeral PostgreSql Database Context</Title>
+        <Authors>Paranoid Software</Authors>
+        <Description>Easy way to create and dispose PostgreSql databases when running isolated integration tests.</Description>
+        <PackageProjectUrl>https://github.com/paranoid-software/ephemerals.net/tree/main/postgresql/lib</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/paranoid-software/ephemerals.net</RepositoryUrl>
+        <PackageTags>database, ephemeral, context, mssql</PackageTags>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageVersion>1.0.0</PackageVersion>
+        <PackageLicenseUrl>https://github.com/paranoid-software/ephemerals.net/blob/main/postgresql/lib/LICENSE.md</PackageLicenseUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+        <PackageReference Include="Npgsql" Version="6.0.5" />
+    </ItemGroup>
+    
+</Project>

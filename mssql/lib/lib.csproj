@@ -11,7 +11,7 @@
         <RepositoryUrl>https://github.com/paranoid-software/ephemerals.net</RepositoryUrl>
         <PackageTags>database, ephemeral, context, mssql</PackageTags>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageVersion>1.0.6</PackageVersion>
+        <PackageVersion>1.0.7</PackageVersion>
         <PackageLicenseUrl>https://github.com/paranoid-software/ephemerals.net/blob/main/mssql/lib/LICENSE.md</PackageLicenseUrl>
     </PropertyGroup>
 

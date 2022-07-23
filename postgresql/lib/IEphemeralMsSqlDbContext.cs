@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace paranoid.software.ephemerals.MsSql
+namespace paranoid.software.ephemerals.PostgreSql
 {
     public interface IEphemeralMsSqlDbContext : IDisposable
     {
