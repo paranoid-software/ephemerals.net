@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace paranoid.software.ephemerals.PostgreSql
 {
-    public interface IEphemeralMsSqlDbContext : IDisposable
+    public interface IEphemeralPostgreSqlDbContext : IDisposable
     {
         string DbName { get; }
         List<Exception> ScriptsErrors { get; }

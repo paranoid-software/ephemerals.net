@@ -5,7 +5,7 @@ using Npgsql;
 
 namespace paranoid.software.ephemerals.PostgreSql
 {
-    public class EphemeralPostgreSqlDbContext: IEphemeralMsSqlDbContext
+    public class EphemeralPostgreSqlDbContext: IEphemeralPostgreSqlDbContext
     {
         private readonly IDbManager _dbManager;
         public string DbName { get; private set; }
