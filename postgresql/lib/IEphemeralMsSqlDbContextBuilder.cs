@@ -1,6 +1,5 @@
-using paranoid.software.ephemerals.MsSql.paranoid.software.ephemerals.MsSql;
 
-namespace paranoid.software.ephemerals.MsSql
+namespace paranoid.software.ephemerals.PostgreSql
 {
     public interface IEphemeralMsSqlDbContextBuilder
     {

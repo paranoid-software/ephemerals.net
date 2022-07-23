@@ -1,20 +1,19 @@
 using System.Collections.Generic;
-using paranoid.software.ephemerals.MsSql.paranoid.software.ephemerals.MsSql;
 
-namespace paranoid.software.ephemerals.MsSql
+namespace paranoid.software.ephemerals.PostgreSql
 {
-    public class EphemeralMsSqlDbContextBuilder : IEphemeralMsSqlDbContextBuilder
+    public class EphemeralPostgreSqlDbContextBuilder : IEphemeralMsSqlDbContextBuilder
     {
 
         private readonly IFilesManager _filesManager;
         private readonly List<string> _scripts;
         
-        public EphemeralMsSqlDbContextBuilder() : this(new FilesManager())
+        public EphemeralPostgreSqlDbContextBuilder() : this(new FilesManager())
         {
             _scripts = new List<string>();
         }
 
-        public EphemeralMsSqlDbContextBuilder(IFilesManager filesManager)
+        public EphemeralPostgreSqlDbContextBuilder(IFilesManager filesManager)
         {
             _filesManager = filesManager;
             _scripts = new List<string>();
@@ -34,12 +33,12 @@ namespace paranoid.software.ephemerals.MsSql
         
         public IEphemeralMsSqlDbContext Build(string serverConnectionString)
         {
-            return new EphemeralDbContext(serverConnectionString, _scripts, new DbManager(serverConnectionString));
+            return new EphemeralPostgreSqlDbContext(serverConnectionString, _scripts, new DbManager(serverConnectionString));
         }
 
         public IEphemeralMsSqlDbContext Build(string serverConnectionString, IDbManager dbManager)
         {
-            return new EphemeralDbContext(serverConnectionString, _scripts, dbManager);
+            return new EphemeralPostgreSqlDbContext(serverConnectionString, _scripts, dbManager);
         }
 
     }
