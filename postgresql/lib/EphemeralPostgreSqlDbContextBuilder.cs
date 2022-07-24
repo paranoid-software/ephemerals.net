@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace paranoid.software.ephemerals.PostgreSql
 {
-    public class EphemeralPostgreSqlDbContextBuilder : IEphemeralMsSqlDbContextBuilder
+    public class EphemeralPostgreSqlDbContextBuilder : IEphemeralPostgreSqlDbContextBuilder
     {
 
         private readonly IFilesManager _filesManager;
@@ -19,24 +19,24 @@ namespace paranoid.software.ephemerals.PostgreSql
             _scripts = new List<string>();
         }
         
-        public IEphemeralMsSqlDbContextBuilder AddScriptFromFile(string filePath)
+        public IEphemeralPostgreSqlDbContextBuilder AddScriptFromFile(string filePath)
         {
             _scripts.Add(_filesManager.ReadAllText(filePath));
             return this;
         }
 
-        public IEphemeralMsSqlDbContextBuilder AddScript(string sentence)
+        public IEphemeralPostgreSqlDbContextBuilder AddScript(string sentence)
         {
             _scripts.Add(sentence);
             return this;
         }
         
-        public IEphemeralMsSqlDbContext Build(string serverConnectionString)
+        public IEphemeralPostgreSqlDbContext Build(string serverConnectionString)
         {
             return new EphemeralPostgreSqlDbContext(serverConnectionString, _scripts, new DbManager(serverConnectionString));
         }
 
-        public IEphemeralMsSqlDbContext Build(string serverConnectionString, IDbManager dbManager)
+        public IEphemeralPostgreSqlDbContext Build(string serverConnectionString, IDbManager dbManager)
         {
             return new EphemeralPostgreSqlDbContext(serverConnectionString, _scripts, dbManager);
         }

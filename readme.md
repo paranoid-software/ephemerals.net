@@ -8,7 +8,7 @@ This repo holds a set of libraries written in C# with the purpose of make the te
 Databases
 
 - [Microsoft SQL Server](https://github.com/paranoid-software/ephemerals.net/tree/main/mssql)
-- PostgreSQL
+- [PostgreSQL](https://github.com/paranoid-software/ephemerals.net/tree/main/postgresql)
 - MySQL
 - Redis
 - Elasticsearch
