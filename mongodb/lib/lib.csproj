@@ -11,7 +11,7 @@
         <RepositoryUrl>https://github.com/paranoid-software/ephemerals.net</RepositoryUrl>
         <PackageTags>database, ephemeral, context, mongodb</PackageTags>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageVersion>1.0.0</PackageVersion>
+        <PackageVersion>1.0.1</PackageVersion>
         <PackageLicenseUrl>https://github.com/paranoid-software/ephemerals.net/blob/main/mongodb/lib/LICENSE.md</PackageLicenseUrl>
     </PropertyGroup>
 
