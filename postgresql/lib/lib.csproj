@@ -9,7 +9,7 @@
         <Description>Easy way to create and dispose PostgreSql databases when running isolated integration tests.</Description>
         <PackageProjectUrl>https://github.com/paranoid-software/ephemerals.net/tree/main/postgresql/lib</PackageProjectUrl>
         <RepositoryUrl>https://github.com/paranoid-software/ephemerals.net</RepositoryUrl>
-        <PackageTags>database, ephemeral, context, mssql</PackageTags>
+        <PackageTags>database, ephemeral, context, postgresql</PackageTags>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageVersion>1.0.1</PackageVersion>
         <PackageLicenseUrl>https://github.com/paranoid-software/ephemerals.net/blob/main/postgresql/lib/LICENSE.md</PackageLicenseUrl>

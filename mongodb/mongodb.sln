@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lib", "lib\lib.csproj", "{47720EC8-07D0-471B-BAB1-F63499D33B84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tests", "tests\tests.csproj", "{32C9F3C4-A2A8-4BF1-AC33-CD0D669B8EBE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lost+found", "lost+found", "{18A18610-249E-4DE6-AF31-F9138D2D2298}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE.md = LICENSE.md
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47720EC8-07D0-471B-BAB1-F63499D33B84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47720EC8-07D0-471B-BAB1-F63499D33B84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47720EC8-07D0-471B-BAB1-F63499D33B84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47720EC8-07D0-471B-BAB1-F63499D33B84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32C9F3C4-A2A8-4BF1-AC33-CD0D669B8EBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32C9F3C4-A2A8-4BF1-AC33-CD0D669B8EBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32C9F3C4-A2A8-4BF1-AC33-CD0D669B8EBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32C9F3C4-A2A8-4BF1-AC33-CD0D669B8EBE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
