@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <AssemblyName>paranoid.software.ephemerals.Redis</AssemblyName>
+        <RootNamespace>paranoid.software.ephemerals.Redis</RootNamespace>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageId>paranoid.software.ephemerals.Redis</PackageId>
+        <Title>Ephemeral Redis Database Context</Title>
+        <Authors>Paranoid Software</Authors>
+        <Description>Easy way to create and dispose Redis databases when running isolated integration tests.</Description>
+        <PackageProjectUrl>https://github.com/paranoid-software/ephemerals.net/tree/main/redis/lib</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/paranoid-software/ephemerals.net/blob/main/redis/lib/LICENSE.md</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/paranoid-software/ephemerals.net</RepositoryUrl>
+        <PackageTags>database, ephemeral, context, redis</PackageTags>
+        <Company>Paranoid Software</Company>
+        <Product>paranoid.software.ephemerals.Redis</Product>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="StackExchange.Redis" Version="2.6.122" />
+      <PackageReference Include="System.Text.Json" Version="7.0.3" />
+    </ItemGroup>
+
+</Project>
