@@ -11,7 +11,7 @@ Databases
 - [PostgreSQL](https://github.com/paranoid-software/ephemerals.net/tree/main/postgresql)
 - [MongoDB](https://github.com/paranoid-software/ephemerals.net/tree/main/mongodb)
 - MySQL
-- [Redis] (https://github.com/paranoid-software/ephemerals.net/tree/main/redis)
+- [Redis](https://github.com/paranoid-software/ephemerals.net/tree/main/redis)
 - Elasticsearch
 - 
 
