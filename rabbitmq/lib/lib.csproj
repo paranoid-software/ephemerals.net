@@ -14,6 +14,7 @@
         <PackageTags>messagin, brokers, ephemeral, context, rabbitmq</PackageTags>
         <Company>Paranoid Software</Company>
         <Product>paranoid.software.ephemerals.RabbitMQ</Product>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
 
     <ItemGroup>

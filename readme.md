@@ -17,7 +17,7 @@ Databases
 
 Message Brokers
 
-- RabbitMQ
+- [RabbitMQ](https://github.com/paranoid-software/ephemerals.net/tree/main/rabbitmq)
 - Google Pub/Sub
 -
 
