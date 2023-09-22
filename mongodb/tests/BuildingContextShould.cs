@@ -54,7 +54,7 @@ namespace tests
             filesManagerMock.Setup(m => m.ReadAllText(It.IsAny<string>())).Returns("");
             using var ctx = new EphemeralMongoDbContextBuilder(filesManagerMock.Object)
                 .Build(new ConnectionParams{ HostName = "localhost" }, dbName: "my_db_name", dbManager: dbManagerMock.Object);
-            ctx.DbName.Should().StartWith("my_db_name");
+            ctx.DbName.Should().Be("my_db_name");
         }
 
         [Fact]

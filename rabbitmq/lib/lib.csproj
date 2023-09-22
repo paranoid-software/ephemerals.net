@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <AssemblyName>paranoid.software.ephemerals.RabbitMQ</AssemblyName>
+        <RootNamespace>paranoid.software.ephemerals.RabbitMQ</RootNamespace>
+        <PackageId>paranoid.software.ephemerals.RabbitMQ</PackageId>
+        <Title>Ephemeral RabbitMQ Service Context</Title>
+        <Authors>Paranoid Software</Authors>
+        <Description>Easy way to create and dispose RabbitMQ vhosts when running isolated integration tests.</Description>
+        <PackageProjectUrl>https://github.com/paranoid-software/ephemerals.net/tree/main/rabbitmq/lib</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/paranoid-software/ephemerals.net/blob/main/rabbitmq/lib/LICENSE.md</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/paranoid-software/ephemerals.net</RepositoryUrl>
+        <PackageTags>messagin, brokers, ephemeral, context, rabbitmq</PackageTags>
+        <Company>Paranoid Software</Company>
+        <Product>paranoid.software.ephemerals.RabbitMQ</Product>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="EasyNetQ" Version="7.5.5" />
+      <PackageReference Include="EasyNetQ.Management.Client" Version="2.0.0" />
+    </ItemGroup>
+
+</Project>

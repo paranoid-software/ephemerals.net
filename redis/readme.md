@@ -37,7 +37,7 @@ public class MyTestsClass {
             "SADD 3 Quito Guayaquil Manta"
         })
         .Build("localhost,password=pwd");
-    var dbNumber = DatabaseNumber;
+    var dbNumber = ctx.DatabaseNumber;
     // Perform our tests and asserts using the locked database
   }
   
@@ -46,8 +46,8 @@ public class MyTestsClass {
 
 In the code shown above:
 
-- EphemeralRedisDbContextBuilder(); // Will initialize the context builder.
-- AddScriptSentences(new List<string> ...); // Will add the given keys with its corresponding values.
+- EphemeralRedisDbContextBuilder() // Will initialize the context builder.
+- AddScriptSentences(new List<string> ...) // Will add the given keys with its corresponding values.
 - Build("localhost,password=pwd"); // Will lock a database on the server, execute the creation ops, and return an ephemeral DB context instance with the chosen database number.
 
 > When the ephemeral DB context is disposed the locked database will be RELEASED.
@@ -65,7 +65,7 @@ public class MyTestsClass {
     using var ctx = new EphemeralRedisDbContextBuilder()
         .AddScriptSentencesFromFile("path_to_script_file")
         .Build("localhost,password=pwd");
-    var dbNumber = DatabaseNumber;
+    var dbNumber = ctx.DatabaseNumber;
     // Perform our tests and asserts using the locked database
   }
   

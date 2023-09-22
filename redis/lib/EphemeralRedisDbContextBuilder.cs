@@ -28,7 +28,7 @@ namespace paranoid.software.ephemerals.Redis
             return this;
         }
 
-        public IEphemeralRedisDbContextBuilder AddScriptSentences(List<string> sentences)
+        public IEphemeralRedisDbContextBuilder AddScriptSentences(IEnumerable<string> sentences)
         {
             _scriptSentences.AddRange(sentences);
             return this;
@@ -48,8 +48,10 @@ namespace paranoid.software.ephemerals.Redis
         {
             var supportedHostNames = new[] { "localhost", "127.0.0.1" };
             var isValidHost = supportedHostNames.Any(connectionString.Contains);
-            if (!isValidHost) 
+            if (!isValidHost)
+            {
                 throw new Exception("Ephemeral database must be local, use localhost or 127.0.0.1 as host name.");
+            }
             return new EphemeralRedisDbContext(dbManager ?? new DbManager(connectionString), _scriptSentences);
         }
     }
