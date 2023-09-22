@@ -5,7 +5,7 @@ using StackExchange.Redis;
 namespace paranoid.software.ephemerals.Redis
 {
     
-    public class RedisDbPool: IDisposable
+    internal class RedisDbPool: IDisposable
     {
         
         private readonly ConnectionMultiplexer _redis;

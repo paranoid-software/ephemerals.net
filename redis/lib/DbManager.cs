@@ -5,7 +5,7 @@ using StackExchange.Redis;
 
 namespace paranoid.software.ephemerals.Redis
 {
-    public class DbManager: IDbManager
+    internal class DbManager: IDbManager
     {
         
         private static RedisDbPool _redisDbPool;
