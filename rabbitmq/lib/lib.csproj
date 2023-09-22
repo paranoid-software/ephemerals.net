@@ -15,6 +15,7 @@
         <Company>Paranoid Software</Company>
         <Product>paranoid.software.ephemerals.RabbitMQ</Product>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Version>1.0.1</Version>
     </PropertyGroup>
 
     <ItemGroup>
