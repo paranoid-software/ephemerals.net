@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.1</TargetFramework>
+        <TargetFrameworks>net6.0;netstandard2.1;netcoreapp3.1</TargetFrameworks>
         <AssemblyName>paranoid.software.ephemerals.RabbitMQ</AssemblyName>
         <RootNamespace>paranoid.software.ephemerals.RabbitMQ</RootNamespace>
         <PackageId>paranoid.software.ephemerals.RabbitMQ</PackageId>
@@ -15,7 +15,7 @@
         <Company>Paranoid Software</Company>
         <Product>paranoid.software.ephemerals.RabbitMQ</Product>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Version>1.0.1</Version>
+        <Version>1.0.2</Version>
     </PropertyGroup>
 
     <ItemGroup>
